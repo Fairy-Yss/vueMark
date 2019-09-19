@@ -7,10 +7,20 @@
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
     <style>
-        .red{background-color: red;}
+        /* .red{background-color: red;}
         .green{background-color: green;}
         .yellow{background-color: yellow;}
-        .width{width: 200px;}
+        .width{width: 200px;} */
+        .box{
+            width: 200px;
+            height: 200px;
+        }
+        .red{
+            background-color: red;
+        }
+        .blue{
+            background-color:blue;
+        }
     </style>
 </head>
 <body>
@@ -22,15 +32,32 @@
         <!--  style {}[] -->
         <!-- <img v-bind:src="imgUrl" :alt="name" :style="[{width:imgWidth},imgStyle]"> -->
         <!-- v-on：事件监听，简写为@   $event 事件对象-->
-        <button @click="handleClick($event,4)">点击</button>
-        <h4 :class="h4ClassArr[h4Index]">{{name}}</h4>
+        <!-- <button @click="handleClick($event,4)">点击</button>
+        <h4 :class="h4ClassArr[h4Index]">{{name}}</h4> -->
+        <!-- <button @click="handleClick">{{text}}</button> -->
+        <!-- v-if:控制标签的显示与隐藏 v-if没显示 则v-else显示，两者不能同时显示 -->
+        <!-- <div class="box red" v-if="show"></div>
+        <div class="box blue" v-else></div> -->
+        <!-- template不会显示在页面上（vue提供），对v-if生效，对v-show不生效 -->
+        <!-- <template v-if="show">
+                <div class="box red" ></div>
+                <div class="box blue"></div>
+        </template> -->
+        <!-- v-for:可以循环数组、对象、数字、字符串等 -->
+        <!-- <ul>
+            <li v-for="(item,index) in arrt">{{item}}---{{index}}</li>
+        </ul>
+        <h4 v-for="(value,key,index) in obj">{{value}}---{{key}}---{{index}}</h4>
+        <h4 v-for="item in 10">{{item}}</h4>
+        <h4 v-for="item in 'fbbfdkjbfjksdsbfj' ">{{item}}</h4> -->
+
     </div>
     <script>
         // const vm = new Vue({
         //     el:"#app",
         //     data:{
         //         a:100
-        //     }
+        //     }    
         // })
         // //vm.$mount("#app"); 与el作用一样，没写el,可以mount这个代替
         // vm.a = 200;
@@ -44,25 +71,53 @@
         
         const vm = new Vue({
             el:"#app",
+            // data:{
+            //     name:"我的图片",
+            //     imgUrl:"http://pic13.nipic.com/20110409/7119492_114440620000_2.jpg",
+            //     h4Class:"red",
+            //     h4Width:"width",
+            //     h4Flag:true,
+            //     imgWidth:"200px",
+            //     imgStyle:{
+            //         border:"10px solid red"
+            //     },
+            //     h4ClassArr:["red","green","yellow"],
+            //     h4Index:0,
+            //     h4Count:0
+            // },
+            // methods:{
+            //     handleClick(num){
+            //         // console.log(num)//第一个参数打印出事件对象
+            //         this.h4Index = ++this.h4Count%3;
+            //     }
+            // }
             data:{
-                name:"我的图片",
-                imgUrl:"http://pic13.nipic.com/20110409/7119492_114440620000_2.jpg",
-                h4Class:"red",
-                h4Width:"width",
-                h4Flag:true,
-                imgWidth:"200px",
-                imgStyle:{
-                    border:"10px solid red"
-                },
-                h4ClassArr:["red","green","yellow"],
-                h4Index:0,
-                h4Count:0
+                // show:true,
+                // text:"隐藏"
+                arrt:["html","js","vue"],
+                obj:{
+                    name:"yss",
+                    age:18,
+                    looks:"nice"
+                }
             },
             methods:{
-                handleClick(num){
-                    // console.log(num)//第一个参数打印出事件对象
-                    this.h4Index = ++this.h4Count%3;
-                }
+                 handleClick () {
+                //     this.show=!this.show;
+                //     this.text=this.show ? "隐藏":"显示"
+                //     //console.log(this.show);
+                // 不能通过索引和下标的方式更改数组，这样不会渲染页面。
+                //this.arrt[this.arrt.length]="rrr",
+                // this.arrt.length = 2;
+                // 可以通过数组的变异方法：pop、shift、unshift、reverse、splice、sort、push   
+                // this.arrt.push("rrr")
+                // 向对象内添加或删除数据 不会渲染
+                //this.obj.salary=1000,
+                //delete this.obj.name;
+                //可以通过vm.$set()方法
+                // this.$set(this.obj,"salary",1000);
+                 }
+               
             }
         })
 

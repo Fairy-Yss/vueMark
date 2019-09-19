@@ -50,7 +50,52 @@
         <h4 v-for="(value,key,index) in obj">{{value}}---{{key}}---{{index}}</h4>
         <h4 v-for="item in 10">{{item}}</h4>
         <h4 v-for="item in 'fbbfdkjbfjksdsbfj' ">{{item}}</h4> -->
+        <!-- v-model 实现数据的双向（视图和data里面的值）绑定 ：value+@input的语法糖-->
+        <!-- 输入框 -->
+        <!-- <input type="text" v-model="value"> -->
+        <!-- <span>{{value}}</span>  -->
+        <!-- 单选框 -->
+        <!-- <input type="checkbox" v-model="checkedd">
+        <span>{{checkedd}}</span>  -->
+        <!-- 复选框 -->
+        <!-- <label for="html">html</label>
+        <input type="checkbox" id="html" value="html" v-model="checkedList">
+        <label for="js">js</label>
+        <input type="checkbox" id="js" value="js" v-model="checkedList">
+        <label for="vue">vue</label>
+        <input type="checkbox" id="vue" value="vue" v-model="checkedList">
+        <span>{{checkedList}}</span>
+         -->
+        <!-- 单选框 -->
+        <!-- <label for="html">html</label>
+        <input type="radio" id="html" value="html" v-model="picked">
+        <label for="js">js</label>
+        <input type="radio" id="js" value="js" v-model="picked">
+        <label for="vue">vue</label>
+        <input type="radio" id="vue" value="vue" v-model="picked">
+        <span>{{picked}}</span> -->
+        <!-- select下拉框(单选) -->
+        <!-- <select name="" id="" v-model="selected">
+            <option value=""  disabled>请选择</option>
+            <option value="html">html</option>
+            <option value="js">js</option>
+            <option value="vue">vue</option>
+        </select>
+        <span>{{selected}}</span> -->
+        <!-- select下拉框(多选 需要按住ctrl键多选) -->
+        <!-- <select name="" id="" v-model="selectedList" multiple>
+            <option value="html">html</option>
+            <option value="js">js</option>
+            <option value="vue">vue</option>
+        </select>
+        <span>{{selectedList}}</span> -->
+        <!-- watch侦听器 -->
+        <!-- {{desc}} -->
+        <!-- computed 计算属性 -->
+        <!-- data>method>computed -->
 
+        <!-- 全局组件 局部组件 -->
+        <hello-world></hello-world>
     </div>
     <script>
         // const vm = new Vue({
@@ -69,8 +114,8 @@
         //     console.log(vm.$el.innerHTML);
         // })
         
-        const vm = new Vue({
-            el:"#app",
+        // const vm = new Vue({
+            // el:"#app",
             // data:{
             //     name:"我的图片",
             //     imgUrl:"http://pic13.nipic.com/20110409/7119492_114440620000_2.jpg",
@@ -91,18 +136,28 @@
             //         this.h4Index = ++this.h4Count%3;
             //     }
             // }
-            data:{
+            // data:{
                 // show:true,
                 // text:"隐藏"
-                arrt:["html","js","vue"],
-                obj:{
-                    name:"yss",
-                    age:18,
-                    looks:"nice"
-                }
-            },
-            methods:{
-                 handleClick () {
+                // name:"yyy",
+                // age:18,
+                // arrt:["html","js","vue"],
+                // obj:{
+                //     name:"yss",
+                //     age:18,
+                //     looks:"nice",
+                    
+                // },
+                // value:"傻傻",
+                // checkedd:true,
+                // checkedList:[],
+                // picked:"",
+                // selected:"",
+                // selectedList:[],
+                //desc:"姓名 ：傻傻 年龄：18 "
+            // },
+            // methods:{
+                //  handleClick () {
                 //     this.show=!this.show;
                 //     this.text=this.show ? "隐藏":"显示"
                 //     //console.log(this.show);
@@ -116,11 +171,70 @@
                 //delete this.obj.name;
                 //可以通过vm.$set()方法
                 // this.$set(this.obj,"salary",1000);
-                 }
+                //  }
                
-            }
-        })
+            // },
+            // watch : {
+            //     name (){
+            //         this.desc = "姓名:"+this.name+"年龄"+this.age;//this.desc = '姓名: ${this.name} 年龄：${this.age}' 为什么执行不了？？                
+            //     },
+            //     age (){
+            //         this.desc = "姓名:"+this.name+"年龄"+this.age;//this.desc = '姓名: ${this.name} 年龄：${this.age}' 为什么执行不了？？
+            //     }
+            // },
+            // computed:{
+            //     desc(){
+            //         return  "姓名:"+this.name+"年龄"+this.age;
+            //     }
+            // }
+        // })
 
+
+        //全局组件
+        // Vue.component('helloWorld',{
+        //     data(){//data必须写成一个函数 不然data值的变化 会影响所有应用这个组件的界面显示
+        //         return {
+        //             msg:'hello world'
+        //         }
+        //     },
+        //     template://组件模板 注意书写div要包含在``里面
+        //         `
+        //         <div>
+        //             <button @click=handleClick>点击</button>
+        //             <span>{{msg}}</span>
+        //         </div>
+
+        //         ` 
+        //     ,
+        //     methods:{
+        //         handleClick(){
+        //             this.msg="haha";
+        //         }
+        //     }
+        // })
+
+        //局部组件(若全局组件和局部组件名称一样，则局部组件优先)
+        // const vm = new Vue({
+        //     el:'#app',
+        //     data:{
+
+        //     },
+        //     components:{//注意要加s
+        //         'helloworld':{
+        //             template:`<div>hello<\div>`
+        //         } 
+        //     }
+        // })
+
+        // 组件数据传递&属性校验
+        // 父->子 传值 props 校验  v-bind="Object"--传递对象属性
+        // 子->父 传值 $emit('handle',value);
+
+        // 1.ref:dom对象的引用是该对象，组件的引用是组件的实例对象
+        // 2.ref同名时，后添加的会覆盖前面的，引用指向的是最后一个元素
+        // 3.在v-for时添加引用，引用的值类型时的数组，数组里面是一个一个dom对象/组件实例对象
+
+        
     </script>
 </body>
 </html>

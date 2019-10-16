@@ -10,34 +10,43 @@
 </head>
 <body>
     <div id="app">
-        <hello-world></hello-world>
+        <!-- <hello-world></hello-world> -->
+        <input v-model="date" value="ppp"></input>
     </div>
 
     <script>
-         Vue.component('helloWorld',{
-            data(){
-                return {
-                    msg:'hello world'
-                }
-            },
-            template:
-                `
-                <div>
-                    <button @click=handleClick>点击</button>
-                    <span>{{msg}}</span>
-                </div>
+    //      Vue.component('helloWorld',{
+    //         data(){
+    //             return {
+    //                 msg:'hello world'
+    //             }
+    //         },
+    //         template:
+    //             `
+    //             <div>
+    //                 <button @click=handleClick>点击</button>
+    //                 <span>{{msg}}</span>
+    //             </div>
                 
-                ` 
-            ,
-            methods:{
-                handleClick(){
-                    this.msg="haha";
-                }
-            }
-        })
-        new Vue({
-        el: '#app'
-    });
+    //             ` 
+    //         ,
+    //         methods:{
+    //             handleClick(){
+    //                 this.msg="haha";
+    //             }
+    //         }
+    //     })
+    //     new Vue({
+    //     el: '#app',
+    //     data:{
+    //         date:"wewe"
+    //     }
+    // });
+    new Vue({
+        el: '#app',
+        data:{
+            date:"wewe"
+        }})
     </script>
 </body>
 </html>

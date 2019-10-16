@@ -55,8 +55,8 @@
         <!-- <input type="text" v-model="value"> -->
         <!-- <span>{{value}}</span>  -->
         <!-- 单选框 -->
-        <!-- <input type="checkbox" v-model="checkedd">
-        <span>{{checkedd}}</span>  -->
+        <input type="checkbox" v-model="checkedd">
+        <span>{{checkedd}}</span> 
         <!-- 复选框 -->
         <!-- <label for="html">html</label>
         <input type="checkbox" id="html" value="html" v-model="checkedList">
@@ -95,7 +95,7 @@
         <!-- data>method>computed -->
 
         <!-- 全局组件 局部组件 -->
-        <hello-world></hello-world>
+        <!-- <hello-world></hello-world> -->
     </div>
     <script>
         // const vm = new Vue({
@@ -114,8 +114,8 @@
         //     console.log(vm.$el.innerHTML);
         // })
         
-        // const vm = new Vue({
-            // el:"#app",
+         const vm = new Vue({
+             el:"#app",
             // data:{
             //     name:"我的图片",
             //     imgUrl:"http://pic13.nipic.com/20110409/7119492_114440620000_2.jpg",
@@ -136,7 +136,7 @@
             //         this.h4Index = ++this.h4Count%3;
             //     }
             // }
-            // data:{
+             data:{
                 // show:true,
                 // text:"隐藏"
                 // name:"yyy",
@@ -149,13 +149,13 @@
                     
                 // },
                 // value:"傻傻",
-                // checkedd:true,
+                //checkedd:""
                 // checkedList:[],
                 // picked:"",
                 // selected:"",
                 // selectedList:[],
                 //desc:"姓名 ：傻傻 年龄：18 "
-            // },
+             }
             // methods:{
                 //  handleClick () {
                 //     this.show=!this.show;
@@ -187,7 +187,7 @@
             //         return  "姓名:"+this.name+"年龄"+this.age;
             //     }
             // }
-        // })
+         })
 
 
         //全局组件
